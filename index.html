@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Personal</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="hero-canvas"></canvas>
+    <header>
+      <div class="logo">
+        <h1>Jean Pierre Ortiz</h1>
+      </div>
+      <nav>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#skills">Skills</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#formacion">Formación</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Hola, mi nombre es Jean Pierre Ortiz y construyo experiencias</h1>
+        <p>
+          Soy formado en técnico en sistemas de Bogotá, Colombia y actualmente
+          estoy participando del proyecto Oracle ONE en Alura Latam.
+        </p>
+        <div class="social-links">
+          <a href="#">GitHub</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Instagram</a>
+          <a href="#">Currículo</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="/api/placeholder/200/200" alt="Foto de perfil" />
+      </div>
+    </section>
+
+    <section id="sobre-mi">
+      <h2>Sobre mi</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus
+        amet sed, ipsa dolore.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus
+        amet sed, ipsa dolore.
+      </p>
+      <img src="/api/placeholder/150/50" alt="Firma" />
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">HTML5</div>
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">PHP</div>
+        <div class="skill-card">Node JS</div>
+        <div class="skill-card">React</div>
+        <div class="skill-card">CSS</div>
+      </div>
+    </section>
+
+    <section id="hobbies">
+      <h2>Hobbies</h2>
+      <div class="hobbies-grid">
+        <div class="hobby-card">Internet</div>
+        <div class="hobby-card">Beat box</div>
+        <div class="hobby-card">UX Design</div>
+        <div class="hobby-card">Ver series</div>
+        <div class="hobby-card">Cocinar</div>
+        <div class="hobby-card">Tomar fotos</div>
+      </div>
+    </section>
+
+    <section id="formacion">
+      <h2>Formación académica</h2>
+      <div class="education-grid">
+        <div class="education-card">
+          <img src="/api/placeholder/300/200" alt="UFPR" />
+          <h3>Análisis de datos</h3>
+          <p>2018 - UFPR</p>
+        </div>
+        <div class="education-card">
+          <img src="/api/placeholder/300/200" alt="Alura" />
+          <h3>Formación en UX Design</h3>
+          <p>2019 - Alura</p>
+        </div>
+        <div class="education-card">
+          <img src="/api/placeholder/300/200" alt="UFRJ" />
+          <h3>Posgrado en design</h3>
+          <p>2021 - UFRJ</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos">
+      <h2>Experiencia profesional</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="/api/placeholder/400/300" alt="Proyecto 1" />
+          <h3>Código secreto</h3>
+          <p>Challenge Oracle</p>
+          <div>
+            <button>Repositorio</button>
+            <button>Demo</button>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="/api/placeholder/400/300" alt="Proyecto 2" />
+          <h3>Juego del ahorcado</h3>
+          <p>Challenge Oracle</p>
+          <div>
+            <button>Repositorio</button>
+            <button>Demo</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" required />
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="form-group">
+          <label for="asunto">Asunto</label>
+          <input type="text" id="asunto" required />
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" rows="5" required></textarea>
+        </div>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>Desarrollado por Jean Pierre Ortiz Murcia</p>
+    </footer>
+
+    <script>
+      // Validación del formulario
+      document
+        .querySelector(".contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const nombre = document.getElementById("nombre").value;
+          const email = document.getElementById("email").value;
+          const asunto = document.getElementById("asunto").value;
+          const mensaje = document.getElementById("mensaje").value;
+
+          if (nombre && email && asunto && mensaje) {
+            alert("Mensaje enviado con éxito!");
+            this.reset();
+          }
+        });
+
+      // Scroll suave para los enlaces de navegación
+      document.querySelectorAll("nav a").forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const sectionId = this.getAttribute("href");
+          document.querySelector(sectionId).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+    <script>
+      const canvas = document.getElementById("hero-canvas");
+      const ctx = canvas.getContext("2d");
+
+      // Configuración de puntos y líneas
+      const points = [];
+      const numPoints = 70;
+      const connectionRadius = 100;
+      const pointSize = 2;
+      let mouse = { x: 0, y: 0 };
+      let isMouseMoving = false;
+      let mouseTimeout;
+
+      // Configuración de colores
+      const primaryColor = "#2d99d8";
+
+      class Point {
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+          this.baseX = x;
+          this.baseY = y;
+          this.speed = 0.05;
+          this.offset = Math.random() * Math.PI * 2;
+          this.moveRadius = Math.random() * 30 + 10;
+        }
+
+        update(mouseX, mouseY) {
+          // Movimiento base circular suave
+          this.x = this.baseX + Math.cos(this.offset) * this.moveRadius;
+          this.y = this.baseY + Math.sin(this.offset) * this.moveRadius;
+          this.offset += this.speed;
+
+          // Interacción con el mouse
+          if (isMouseMoving) {
+            const dx = mouseX - this.x;
+            const dy = mouseY - this.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const maxDistance = 300;
+
+            if (distance < maxDistance) {
+              const force = (1 - distance / maxDistance) * 0.2;
+              this.x -= dx * force;
+              this.y -= dy * force;
+            }
+          }
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, pointSize, 0, Math.PI * 2);
+          ctx.fillStyle = primaryColor;
+          ctx.fill();
+        }
+      }
+
+      function init() {
+        points.length = 0;
+        for (let i = 0; i < numPoints; i++) {
+          const x = Math.random() * canvas.width;
+          const y = Math.random() * canvas.height;
+          points.push(new Point(x, y));
+        }
+      }
+
+      function drawConnections() {
+        points.forEach((point, i) => {
+          points.forEach((otherPoint, j) => {
+            if (i !== j) {
+              const dx = point.x - otherPoint.x;
+              const dy = point.y - otherPoint.y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+
+              if (distance < connectionRadius) {
+                ctx.beginPath();
+                ctx.moveTo(point.x, point.y);
+                ctx.lineTo(otherPoint.x, otherPoint.y);
+
+                // Gradiente de color basado en la distancia
+                const opacity = 1 - distance / connectionRadius;
+                ctx.strokeStyle = `rgba(0, 102, 255, ${opacity * 0.2})`;
+                ctx.lineWidth = opacity;
+                ctx.stroke();
+              }
+            }
+          });
+
+          // Conexión con el mouse si está cerca
+          if (isMouseMoving) {
+            const dx = point.x - mouse.x;
+            const dy = point.y - mouse.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < connectionRadius * 1.5) {
+              ctx.beginPath();
+              ctx.moveTo(point.x, point.y);
+              ctx.lineTo(mouse.x, mouse.y);
+              const opacity = 1 - distance / (connectionRadius * 1.5);
+              ctx.strokeStyle = `rgba(0, 102, 255, ${opacity * 0.3})`;
+              ctx.lineWidth = opacity * 2;
+              ctx.stroke();
+            }
+          }
+        });
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        points.forEach((point) => {
+          point.update(mouse.x, mouse.y);
+          point.draw();
+        });
+
+        drawConnections();
+        requestAnimationFrame(animate);
+      }
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight / 2;
+        init();
+      }
+
+      // Event Listeners
+      window.addEventListener("resize", resizeCanvas);
+
+      canvas.addEventListener("mousemove", (e) => {
+        mouse.x = e.x;
+        mouse.y = e.y;
+        isMouseMoving = true;
+        clearTimeout(mouseTimeout);
+        mouseTimeout = setTimeout(() => {
+          isMouseMoving = false;
+        }, 100);
+      });
+
+      // Touch support
+      canvas.addEventListener("touchmove", (e) => {
+        e.preventDefault();
+        mouse.x = e.touches[0].clientX;
+        mouse.y = e.touches[0].clientY;
+        isMouseMoving = true;
+        clearTimeout(mouseTimeout);
+        mouseTimeout = setTimeout(() => {
+          isMouseMoving = false;
+        }, 100);
+      });
+
+      // Inicialización
+      resizeCanvas();
+      animate();
+    </script>
+  </body>
+</html>
